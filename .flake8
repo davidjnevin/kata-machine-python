@@ -1,0 +1,4 @@
+[flake8]
+extend-ignore = S101
+per-file-ignores =
+    test: S101
