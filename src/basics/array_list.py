@@ -34,7 +34,7 @@ class ArrayList:
             self._resize()
         keepgoing = True
         last_idx = self.length
-        while(keepgoing):
+        while keepgoing:
             self.data[last_idx] = self.data[last_idx - 1]
             last_idx -= 1
             if last_idx == 0:
@@ -66,12 +66,9 @@ class ArrayList:
         if self._isValidIndex(idx):
             # Shift all items left overwriting idx item
             for i in range(idx, self.length):
-                self.data[i] = self.data[i+1]
+                self.data[i] = self.data[i + 1]
             self.length -= 1
 
     def get(self, idx):
         if self._isValidIndex(idx):
             return self.data[idx]
-
-
-

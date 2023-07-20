@@ -1,7 +1,4 @@
-from typing import cast
-
 import pytest
-from _pytest.python_api import raises
 
 import src.basics.array_list as array_list
 
@@ -84,7 +81,28 @@ def test_prepend_to_full_array():
     assert a.get(0) == 10
 
     # check all values exist at the correct index
-    assert a.data == [10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, None, None, None, None, None, None, None, None, None]
+    assert a.data == [
+        10,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        None,
+        None,
+        None,
+        None,
+        None,
+        None,
+        None,
+        None,
+        None,
+    ]
 
     assert a.length == array_length + 1
 
@@ -126,7 +144,7 @@ def test_remove_item_that_exists_in_arraryList():
 
     a.remove(3)
     assert a.length == 4
-    assert str(a) == '[0, 1, 2, 4, None, None, None, None, None, None]'
+    assert str(a) == "[0, 1, 2, 4, None, None, None, None, None, None]"
 
 
 def test_remove_item_that_does_not_exist_in_arraryList():
@@ -138,4 +156,4 @@ def test_remove_item_that_does_not_exist_in_arraryList():
     with pytest.raises(ValueError, match="77 not found"):
         a.remove(77)
     assert a.length == original_length
-    assert str(a) == '[0, 1, 2, 3, 4, None, None, None, None, None]'
+    assert str(a) == "[0, 1, 2, 3, 4, None, None, None, None, None]"
