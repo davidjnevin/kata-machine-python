@@ -1,4 +1,4 @@
 [flake8]
-extend-ignore = S101
+extend-ignore = S101, S311
 per-file-ignores =
     test: S101
