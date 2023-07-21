@@ -1,3 +1,7 @@
+# Linear Search
+# Time Complexity: O(n)
+
+
 def linear_search(myList, target):
     for i in range(len(myList)):
         if myList[i] == target:
