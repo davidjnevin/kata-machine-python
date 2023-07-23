@@ -93,4 +93,26 @@ class Singly_linked_list:
         return NotImplemented
 
     def removeAt(self, idx: int):
-        return NotImplemented
+        if not self.head:
+            raise IndexError()
+
+        if idx not in range(self.length):
+            raise IndexError()
+
+        if self.head:
+            curr_node = self.head
+            prev = self.head
+            if idx == 0 and not self.head.next:
+                self.head.data = None
+                self.length = 0
+                return
+
+            position = 1
+            while curr_node and position <= idx:
+                prev = curr_node
+                curr_node = curr_node.next
+                position += 1
+
+            prev.next = curr_node.next
+            curr_node = None
+            self.length -= 1
