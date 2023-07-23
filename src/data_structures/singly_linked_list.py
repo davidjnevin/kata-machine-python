@@ -61,6 +61,10 @@ class Singly_linked_list:
         return
 
     def insertAt(self, idx: int, data):
+        if self.length == idx and idx == 0:
+            self.append(data)
+            return
+
         if idx not in range(self.length):
             raise IndexError()
 
@@ -70,6 +74,7 @@ class Singly_linked_list:
             prev = self.head
             if idx == 0:
                 self.prepend(data)
+                return
 
             position = 0
             while curr_node and position != idx:
@@ -78,10 +83,13 @@ class Singly_linked_list:
                 position += 1
             node.next = curr_node
             prev.next = node
+            self.length += 1
+            return
         else:
             self.append(data)
+            return
 
-    def remove(self, idx: int):
+    def remove(self, data):
         return NotImplemented
 
     def removeAt(self, idx: int):

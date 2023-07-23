@@ -60,6 +60,7 @@ def test_insertAt_invalid_index():
         sll.insertAt(3, 4)
     with pytest.raises(IndexError):
         sll.insertAt(-1, 4)
+    assert sll.length == 0
 
 
 def test_insertAt():
@@ -72,9 +73,18 @@ def test_insertAt():
     sll.append(5)
     sll.append(6)
     sll.append(7)
+    assert sll.length == 8
     # [0, 1, 2, 3, 4, 5, 6, 7]
     sll.insertAt(4, 23)
     # [0, 1, 2, 3, 23, 4, 5, 6, 7]
     assert sll.get_at(3) == 3
     assert sll.get_at(4) == 23
     assert sll.get_at(5) == 4
+    assert sll.length == 9
+
+
+def test_insertAt_in_empty_list_with_idx_as_zero():
+    sll = Singly_linked_list()
+    sll.insertAt(0, 23)
+    assert sll.length == 1
+    assert sll.get_at(0) == 23
