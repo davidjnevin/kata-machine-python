@@ -42,10 +42,10 @@ class Doubly_linked_list:
         return
 
     def get_at(self, idx):
-        if not self.head:
-            raise ValueError()
         if idx not in range(self.length):
             raise IndexError()
+        if not self.head:
+            raise ValueError()
         if idx == 0:
             return self.head.data
         if self.head:
@@ -57,3 +57,27 @@ class Doubly_linked_list:
                 else:
                     curr_node = curr_node.next
                 position += 1
+
+    def insertAt(self, idx, data):
+        if idx == 0:
+            self.prepend(data)
+            return
+        if idx not in range(self.length):
+            raise IndexError()
+        if idx == self.length - 1:
+            self.append(data)
+            return
+
+        position = 1
+        node = Node(data)
+        curr_node = self.head
+        while curr_node.next:
+            if position == idx:
+                node.prev = curr_node
+                node.next = curr_node.next
+                curr_node.next.prev = node
+                curr_node.next = node
+            curr_node = curr_node.next
+            position += 1
+        self.length += 1
+        return
