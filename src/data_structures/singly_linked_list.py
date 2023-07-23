@@ -89,9 +89,6 @@ class Singly_linked_list:
             self.append(data)
             return
 
-    def remove(self, data):
-        return NotImplemented
-
     def removeAt(self, idx: int):
         if not self.head:
             raise IndexError()
@@ -102,9 +99,10 @@ class Singly_linked_list:
         if self.head:
             curr_node = self.head
             prev = self.head
-            if idx == 0 and not self.head.next:
-                self.head.data = None
-                self.length = 0
+            if idx == 0:
+                # self.head.data = None
+                self.head = self.head.next
+                self.length -= 1
                 return
 
             position = 1
@@ -116,3 +114,17 @@ class Singly_linked_list:
             prev.next = curr_node.next
             curr_node = None
             self.length -= 1
+
+    def remove(self, data):
+        if not self.head:
+            raise ValueError()
+
+        curr_node = self.head
+        idx = 0
+        while curr_node:
+            if curr_node.data == data:
+                self.removeAt(idx)
+                return
+            curr_node = curr_node.next
+            idx += 1
+        raise ValueError()
