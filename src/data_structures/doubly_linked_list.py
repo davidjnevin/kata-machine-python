@@ -10,8 +10,8 @@ class Node:
         next_node: Optional["Node"] = None,
     ):
         self.data = data
-        self.prev = prev_node  # To avoid overshadowing of 'next' builtin
-        self.next = next_node  # To avoid overshadowing of 'prev' builtin
+        self.prev = prev_node  # To avoid overshadowing of 'prev' builtin
+        self.next = next_node  # To avoid overshadowing of 'next' builtin
 
 
 class Doubly_linked_list:
