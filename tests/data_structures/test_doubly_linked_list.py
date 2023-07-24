@@ -16,7 +16,7 @@ def test_prepend():
 def test_get_at_emply_linked_list():
     dll = Doubly_linked_list()
 
-    with pytest.raises(ValueError):
+    with pytest.raises(IndexError):
         dll.get_at(3)
 
 

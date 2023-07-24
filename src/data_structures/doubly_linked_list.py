@@ -45,7 +45,7 @@ class Doubly_linked_list:
         if idx not in range(self.length):
             raise IndexError()
         if not self.head:
-            raise ValueError()
+            raise IndexError()
         if idx == 0:
             return self.head.data
         if self.head:
