@@ -25,7 +25,7 @@ class MyQueue:
         else:
             self.head = self.tail = node
 
-    def dequeue(self):
+    def deque(self):
         if self.head:
             self.length -= 1
             value = self.head.data
