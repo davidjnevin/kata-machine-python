@@ -81,3 +81,37 @@ class Doubly_linked_list:
             position += 1
         self.length += 1
         return
+
+    def _getNode(self, idx):
+        postion = 0
+        curr_node = self.head
+        while curr_node:
+            if postion == idx:
+                return curr_node
+            curr_node = curr_node.next
+            postion += 1
+        return None
+
+    def _removeNode(self, node):
+        self.length -= 1
+
+        if self.length == 0:
+            value = self.head.data
+            self.head = self.tail = None
+            return value
+        if node.prev:
+            node.prev.next = node.next
+        if node.next:
+            node.next.prev = node.prev
+        if node == self.head:
+            self.head = node.next
+        if node == self.tail:
+            self.tail = node.prev
+        node.prev = node.next = None
+        return node.data
+
+    def removeAt(self, idx):
+        if idx not in range(self.length):
+            raise IndexError()
+        node = self._getNode(idx)
+        return self._removeNode(node)
