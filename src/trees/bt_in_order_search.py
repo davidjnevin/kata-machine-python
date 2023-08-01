@@ -5,13 +5,13 @@ def walk(curr: BinaryNode | None, path: list[int]) -> None:
     if curr is None:
         return
 
-    # in-order: left, visit, right
+    # in-order: left, right, visit
     # pre
-    walk(curr.left, path)
     # recurse
+    walk(curr.left, path)
     path.append(curr.value)
-    # post
     walk(curr.right, path)
+    # post
 
 
 def in_order(head: BinaryNode) -> list[int]:
