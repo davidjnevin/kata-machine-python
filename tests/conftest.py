@@ -79,3 +79,24 @@ def yet_another_binary_tree():
             right=BinaryNode(100),
         ),
     )
+
+
+@pytest.fixture
+def binary_search_tree():
+    return BinaryNode(
+        12,
+        left=BinaryNode(
+            8,
+            left=BinaryNode(7),
+            right=BinaryNode(9),
+        ),
+        right=BinaryNode(
+            25,
+            left=BinaryNode(
+                17,
+                left=None,
+                right=BinaryNode(19),
+            ),
+            right=BinaryNode(30),
+        ),
+    )

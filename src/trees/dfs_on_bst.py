@@ -1,11 +1,13 @@
-def search(curr, neddle) -> bool:
+def search(curr, needle) -> bool:
     if not curr:
         return False
-    if curr.value == neddle:
+    # if not curr.value:
+    #     return False
+    if curr.value == needle:
         return True
-    if curr.value < neddle:
-        return search(curr.right, neddle)
-    return search(curr.left, neddle)
+    if curr.value < needle:
+        return search(curr.right, needle)
+    return search(curr.left, needle)
 
 
 def dfs(head, needle) -> bool:
