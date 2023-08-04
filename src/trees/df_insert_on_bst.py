@@ -1,3 +1,4 @@
+# Binary tree depth first search insert
 from src.trees.binary_node import BinaryNode
 
 
