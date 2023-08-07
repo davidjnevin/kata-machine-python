@@ -2,4 +2,4 @@
 
 
 def merge_sort(arr):
-    pass
+    return NotImplementedError
