@@ -1,4 +1,5 @@
 # Description: Implementation of a min heap.
+# Time Complexity log(n)
 
 
 class MinHeap:
